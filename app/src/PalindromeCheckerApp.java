@@ -1,46 +1,58 @@
 /**
  * =========================================================================
- * MAIN CLASS - UseCase3PalindromeCheckerApp
+ * MAIN CLASS - UseCase4PalindromeCheckerApp
  * =========================================================================
- * * Use Case 3: Reverse String Based Palindrome Check
+ * Use Case 4: Character Array Based Validation
  * * Description:
- * This class checks whether a string is a palindrome
- * by reversing the string and comparing it with
- * the original value.
+ * This class validates a palindrome by converting
+ * the string into a character array and comparing
+ * characters using the two-pointer technique.
  * * At this stage, the application:
- * - Iterates the string in reverse order
- * - Builds a reversed version
- * - Compares original and reversed strings
- * - Displays the validation result
- * * This introduces transformation-based validation.
- * * @author Developer
- * @version 3.0
+ * - Converts string to char array
+ * - Uses start and end pointers
+ * - Compares characters efficiently
+ * - Displays the result
+ * * This reduces extra memory usage.
+ * @author Developer
+ * @version 4.0
  */
-
 public class PalindromeCheckerApp {
 
     /**
-     * Application entry point for UC3.
-     * * @param args Command-line arguments
+     * Application entry point for UC4.
+     * @param args Command-line arguments
      */
     public static void main(String[] args) {
-        // Input string to be checked
-        String input = "madam";
-        String reversed = "";
+        // Step 1: Initialize the input string
+        String input = "radar";
 
-        // UC3 Logic: Reverse string using a loop
-        // Hint: Iterate from the last character to the first.
-        for (int i = input.length() - 1; i >= 0; i--) {
-            // Building reversed string via concatenation
-            reversed += input.charAt(i);
+        // Step 2: Convert the string into a character array
+        char[] chars = input.toCharArray();
+
+        // Step 3: Initialize pointers
+        int start = 0;              // Pointer at the beginning
+        int end = chars.length - 1; // Pointer at the end
+
+        // Assume it is a palindrome until proven otherwise
+        boolean isPalindrome = true;
+
+        // Step 4: Two-Pointer comparison loop
+        // Continue comparison until pointers meet or cross
+        while (start < end) {
+            // Compare characters at the current pointers
+            if (chars[start] != chars[end]) {
+                isPalindrome = false; // Mismatch found
+                break;               // Exit loop early for efficiency
+            }
+
+            // Move pointers closer to the center
+            start++;
+            end--;
         }
 
-        // Displaying the results
-        System.out.println("Original String: " + input);
-        System.out.println("Reversed String: " + reversed);
-
-        // Compare original and reversed using .equals() for content comparison
-        if (input.equalsIgnoreCase(reversed)) {
+        // Step 5: Display the result
+        System.out.println("Input String: " + input);
+        if (isPalindrome) {
             System.out.println("Result: The string is a palindrome.");
         } else {
             System.out.println("Result: The string is NOT a palindrome.");
