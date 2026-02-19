@@ -1,50 +1,49 @@
+/**
+ * =========================================================================
+ * MAIN CLASS - UseCase3PalindromeCheckerApp
+ * =========================================================================
+ * * Use Case 3: Reverse String Based Palindrome Check
+ * * Description:
+ * This class checks whether a string is a palindrome
+ * by reversing the string and comparing it with
+ * the original value.
+ * * At this stage, the application:
+ * - Iterates the string in reverse order
+ * - Builds a reversed version
+ * - Compares original and reversed strings
+ * - Displays the validation result
+ * * This introduces transformation-based validation.
+ * * @author Developer
+ * @version 3.0
+ */
 
-        /**
-         * =============================================================================
-         * MAIN CLASS - UseCase2PalindromeCheckerApp
-         * =============================================================================
-         * * Use Case 2: Hardcoded Palindrome Validation
-         * * Description:
-         * This class demonstrates basic palindrome validation
-         * using a hardcoded string value.
-         * * At this stage, the application:
-         * - Stores a predefined string
-         * - Compares characters from both ends
-         * - Determines whether the string is a palindrome
-         * - Displays the result on the console
-         * * This use case introduces fundamental comparison logic
-         * before using advanced data structures.
-         * * @author Developer
-         * @version 2.0
-         */
-        public class PalindromeCheckerApp {
+public class PalindromeCheckerApp {
 
-            /**
-             * Application entry point for UC2.
-             * * @param args Command-line arguments
-             */
-            public static void main(String[] args) {
-                // 1. Define the input (Missing in your screenshot)
-                java.util.Scanner sc = new java.util.Scanner(System.in);
-                System.out.println("Enter a string:");
-                String input = sc.nextLine();
+    /**
+     * Application entry point for UC3.
+     * * @param args Command-line arguments
+     */
+    public static void main(String[] args) {
+        // Input string to be checked
+        String input = "madam";
+        String reversed = "";
 
-                boolean isPalindrome = true;
-                int length = input.length();
+        // UC3 Logic: Reverse string using a loop
+        // Hint: Iterate from the last character to the first.
+        for (int i = input.length() - 1; i >= 0; i--) {
+            // Building reversed string via concatenation
+            reversed += input.charAt(i);
+        }
 
-                // 2. The Loop (Make sure to remove the // from the start)
-                for (int i = 0; i < length / 2; i++) {
-                    // Compare front character with back character
-                    if (input.charAt(i) != input.charAt(length - 1 - i)) {
-                        isPalindrome = false;
-                        break; // Now this works because it's inside a loop!
-                    }
-                }
+        // Displaying the results
+        System.out.println("Original String: " + input);
+        System.out.println("Reversed String: " + reversed);
 
-                // 3. Display the result
-                if (isPalindrome) {
-                    System.out.println("The string \"" + input + "\" is a palindrome.");
-                } else {
-                    System.out.println("The string \"" + input + "\" is NOT a palindrome.");
-                }
-            }}
+        // Compare original and reversed using .equals() for content comparison
+        if (input.equalsIgnoreCase(reversed)) {
+            System.out.println("Result: The string is a palindrome.");
+        } else {
+            System.out.println("Result: The string is NOT a palindrome.");
+        }
+    }
+}
