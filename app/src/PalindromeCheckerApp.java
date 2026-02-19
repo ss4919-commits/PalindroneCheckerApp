@@ -1,37 +1,50 @@
-/**
- * ==========================================================
- * MAIN CLASS - UseCase1PalindromeApp
- * ==========================================================
- * * Use Case 1: Application Entry & Welcome Message
- * * Description:
- * This class represents the entry point of the
- * Palindrome Checker Management System.
- * * At this stage, the application:
- * - Starts execution from the main() method
- * - Displays a welcome message
- * - Shows application version
- * * No palindrome logic is implemented yet.
- * * The goal is to establish a clear startup flow.
- * * @author Developer
- * @version 1.0
- */
 
-public class PalindromeCheckerApp {
+        /**
+         * =============================================================================
+         * MAIN CLASS - UseCase2PalindromeCheckerApp
+         * =============================================================================
+         * * Use Case 2: Hardcoded Palindrome Validation
+         * * Description:
+         * This class demonstrates basic palindrome validation
+         * using a hardcoded string value.
+         * * At this stage, the application:
+         * - Stores a predefined string
+         * - Compares characters from both ends
+         * - Determines whether the string is a palindrome
+         * - Displays the result on the console
+         * * This use case introduces fundamental comparison logic
+         * before using advanced data structures.
+         * * @author Developer
+         * @version 2.0
+         */
+        public class PalindromeCheckerApp {
 
-    /**
-     * Application entry point.
-     * * This is the first method executed by the JVM
-     * when the program starts.
-     * * @param args Command-line arguments
-     */
-    public static void main(String[] args) {
-        // Displaying the Welcome Message
-        System.out.println("Welcome to the Palindrome Checker Management System");
+            /**
+             * Application entry point for UC2.
+             * * @param args Command-line arguments
+             */
+            public static void main(String[] args) {
+                // 1. Define the input (Missing in your screenshot)
+                java.util.Scanner sc = new java.util.Scanner(System.in);
+                System.out.println("Enter a string:");
+                String input = sc.nextLine();
 
-        // Displaying the Application Version
-        System.out.println("Version : 1.0");
+                boolean isPalindrome = true;
+                int length = input.length();
 
-        // Indicating successful initialization
-        System.out.println("System initialized successfully.");
-    }
-}
+                // 2. The Loop (Make sure to remove the // from the start)
+                for (int i = 0; i < length / 2; i++) {
+                    // Compare front character with back character
+                    if (input.charAt(i) != input.charAt(length - 1 - i)) {
+                        isPalindrome = false;
+                        break; // Now this works because it's inside a loop!
+                    }
+                }
+
+                // 3. Display the result
+                if (isPalindrome) {
+                    System.out.println("The string \"" + input + "\" is a palindrome.");
+                } else {
+                    System.out.println("The string \"" + input + "\" is NOT a palindrome.");
+                }
+            }}
