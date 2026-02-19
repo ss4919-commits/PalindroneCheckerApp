@@ -24,27 +24,27 @@
              * * @param args Command-line arguments
              */
             public static void main(String[] args) {
-                // 1. Hardcoded string to check
-                String input = "madam";
+                // 1. Define the input (Missing in your screenshot)
+                java.util.Scanner sc = new java.util.Scanner(System.in);
+                System.out.println("Enter a string:");
+                String input = sc.nextLine();
+
                 boolean isPalindrome = true;
                 int length = input.length();
 
-                // 2. Loop only till half of the string length (as per hint)
-                //         for (int i = 0; i < length / 2; i++) {
-                // Compare character at index i with character at symmetric index from the end
-                if (input.charAt(i) != input.charAt(length - 1 - i)) {
-                    isPalindrome = false;
-                    break; // Exit loop early if a mismatch is found
+                // 2. The Loop (Make sure to remove the // from the start)
+                for (int i = 0; i < length / 2; i++) {
+                    // Compare front character with back character
+                    if (input.charAt(i) != input.charAt(length - 1 - i)) {
+                        isPalindrome = false;
+                        break; // Now this works because it's inside a loop!
+                    }
                 }
-            }
 
-            // 3. Conditional Statement to display the result
-        if (isPalindrome) {
-                System.out.println("The string \"" + input + "\" is a palindrome.");
-            } else {
-                System.out.println("The string \"" + input + "\" is NOT a palindrome.");
-            }
-        }
-    }
-    }
-}
+                // 3. Display the result
+                if (isPalindrome) {
+                    System.out.println("The string \"" + input + "\" is a palindrome.");
+                } else {
+                    System.out.println("The string \"" + input + "\" is NOT a palindrome.");
+                }
+            }}
