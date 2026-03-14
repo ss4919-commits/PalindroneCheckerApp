@@ -21,6 +21,7 @@ public class UseCase7PalindromeCheckerApp {
 
     /**
      * Application entry point for UC7.
+     *
      * @param args Command-line arguments
      */
     public static void main(String[] args) {
